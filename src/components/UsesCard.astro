@@ -1,0 +1,45 @@
+---
+interface Props {
+    headerImage?: string,
+    title: string,
+    description: string,
+    link?: string,
+    affiliateLink?: string
+}
+const { headerImage, title, description, link, affiliateLink } = Astro.props;
+---
+
+<article class="card">
+    <header><img src={headerImage} alt={`Photo of ${title}`}></header>
+    <div class="card__body">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <a href={link}>Link</a>
+        <a href={affiliateLink}>Link with Affiliate code</a>
+    </div>
+</article>
+
+
+<style scoped>
+    article {
+        max-width: 37.5rem;
+        border: 2px solid green;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    .card {
+        display: flex;
+    }
+
+    header {
+        width: 250px;
+        height: 100%;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+
+</style>

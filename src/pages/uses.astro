@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import UsesCard from '../components/UsesCard.astro'
 ---
 
 <Layout title="Hardware, Software and everything I use">
@@ -26,32 +27,40 @@ import Layout from "../layouts/Layout.astro";
             </nav>
         </aside>
         <main>
-            <section id="coding">
+            <section id="coding" class="category">
                 <h2>Coding</h2>
-                <article>
-                    Varmilo Keyboard
-                </article>
-                <article>
+                <UsesCard 
+                    headerImage="https://mechanicalkeyboards.com/shop/images/products/large_2843_87CMYK_1.jpg"
+                    title="Varmilo Keyboard"
+                    description="this is the keyboard I use"
+                />
+                <UsesCard>
                     Logitech MX Master 3 Mouse
-                </article>
+                </UsesCard>
             </section>
-            <section id="gaming">
+            <section id="gaming" class="category">
                 <h2>Gaming</h2>
-                <article>
-                    Playstation 5
-                </article>
-                <article>
-                    steelseries arctic 7p headset
-                </article>
+                <UsesCard title="Playstation 5" description="to be updated">
+                    
+                </UsesCard>
+                <UsesCard title="steelseries arctic 7p headset" description="to be updated">
+                    
+                </UsesCard>
             </section>
-            <section id="software">
+            <section id="software" class="category">
                 <h2>software</h2>
-                <article>
-                    VScode (with Moonlight 2 Italic theme)
-                </article>
-                <article>
-                    Iterm 2
-                </article>
+                <UsesCard title="VScode (with Moonlight 2 Italic theme)" description="to be updated">
+                    
+                </UsesCard>
+                <UsesCard title="Iterm 2" description="to be updated">
+                    
+                </UsesCard>
+                <UsesCard title="Rectangle" description="to be updated">
+                    
+                </UsesCard>
+                <UsesCard title="KeepingYouAwake" description="to be updated">
+                    
+                </UsesCard>
             </section>
         </main>
     </section>
