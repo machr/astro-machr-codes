@@ -1,5 +1,5 @@
 List of todo
-[] Add scss compatibility
+[x] Add scss compatibility
 [] Figure out content for index page
 [] Add footer with social media
 [] Update github README
