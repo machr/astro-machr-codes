@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+// This is is a blog like page with notes that I've taken while building something
+const allNotes = await getCollection("notes");
+---
+
+<header><h1>My Notes</h1></header>
+
+<h2>Latest Notes</h2>
+<ol>
+  {
+    allNotes.map((note) => (
+      <li>
+        <a href={`/notes/${note.slug}`}>{note.data.title}</a>
+      </li>
+    ))
+  }
+</ol>
