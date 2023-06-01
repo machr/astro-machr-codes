@@ -1,11 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import me from "../assets/me.jpeg";
 ---
+
 <Layout title="About Me">
+  <section class="about__grid">
+    <aside class="about__photo">
+      <img src={me.src} alt="A profile picture of Mark Christiansen" />
+    </aside>
     <main>
-        <section class="content">
-            <h1>About me</h1>
-            <p>I’m a Javascript developer. My goal is to make software that people enjoy using, and have fun in the process</p>
-        </section>
+      <section class="content">
+        <h1>About me</h1>
+        <p>
+          I’m a Javascript developer. My goal is to make software that people
+          enjoy using, and have fun in the process
+        </p>
+        <p>
+          Hey there! I'm a web developer with a knack for creating awesome
+          software that people absolutely love using. My journey began when I
+          completed a Web Development bootcamp back in 2017. After that, I
+          scored a gig with the Australian Football League as a junior frontend
+          developer, where I got to work my magic with Vue.js. It was a blast
+          enhancing the digital presence of such an iconic organization and
+          creating seamless user experiences. However, I eventually decided to
+          pursue new challenges, and that led me to join the incredible team at
+          A Cloud Guru as a software engineer. There, I immersed myself in the
+          world of GraphQL, AWS, and React, learning tons along the way. Now,
+          I'm on the lookout for my next adventure – an opportunity to build
+          software that people can't get enough of, while having a blast and
+          soaking up even more knowledge.
+        </p>
+      </section>
     </main>
+  </section>
 </Layout>
+
+<style>
+  .about__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 3rem;
+  }
+  .about__photo {
+    display: block;
+    width: 100%;
+  }
+  .about__photo img {
+    display: block;
+    width: 100%;
+    border-radius: 25px;
+  }
+</style>
