@@ -2,7 +2,8 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource/inter";
-export interface Props {
+interface Props {
+  title: string;
   frontmatter: {
     title: string;
     author: string;
@@ -13,7 +14,7 @@ export interface Props {
   };
 }
 
-const { frontmatter } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,68 +23,63 @@ const { frontmatter } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{frontmatter.title}</title>
+    <title>{title}</title>
   </head>
   <body>
     <div class="container">
       <Header />
-      <main>
-        <h1>{frontmatter.title}</h1>
-        <h2>by: {frontmatter.author}</h2>
-        <span>{frontmatter.section}</span>
-        <a href={frontmatter.github}>Github repo</a>
-        <p>{frontmatter.description}</p>
-      </main>
-      <Footer />
+      <slot />
+      <!-- <Footer /> -->
     </div>
   </body>
+
+  <style is:global>
+    :root {
+      --accent: 124, 58, 237;
+      --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        #da62c4 30%,
+        white 60%
+      );
+      /* color-scheme: light dark; */
+    }
+    html {
+      /* These could be variables */
+      font-family: "Inter", system-ui, sans-serif;
+      background: linear-gradient(
+        97.9deg,
+        #ff2d82 -7%,
+        #ff2d82 48.01%,
+        #35d1e6 69.34%
+      );
+    }
+
+    @media (: dark) {
+      background-color: black;
+      color: white;
+    }
+
+    @media (prefers-color-scheme: light) {
+      /* Light theme styles go here */
+      background-color: white;
+      color: black;
+    }
+    code {
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+    body {
+      background: white;
+      border-radius: 25px;
+      margin: 1rem;
+      padding: 1rem 2rem;
+    }
+    .container {
+      max-width: 1280px;
+      min-height: calc(90vh - 4rem);
+      margin: auto;
+      /* background-color: white; */
+    }
+  </style>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-    /* color-scheme: light dark; */
-  }
-  html {
-    /* These could be variables */
-    font-family: "Inter", system-ui, sans-serif;
-    background: linear-gradient(
-      97.9deg,
-      #ff2d82 -7%,
-      #ff2d82 48.01%,
-      #35d1e6 69.34%
-    );
-  }
-
-  @media (: dark) {
-    background-color: black;
-    color: white;
-  }
-
-  @media (prefers-color-scheme: light) {
-    /* Light theme styles go here */
-    background-color: white;
-    color: black;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-  body {
-    background: white;
-    border-radius: 25px;
-    margin: 1rem;
-    padding: 1rem 2rem;
-  }
-  .container {
-    max-width: 1280px;
-    min-height: calc(100vh - 4rem);
-    margin: auto;
-    background-color: white;
-  }
-</style>

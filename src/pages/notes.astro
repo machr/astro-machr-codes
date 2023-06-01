@@ -1,18 +1,53 @@
 ---
 import { getCollection } from "astro:content";
-// This is is a blog like page with notes that I've taken while building something
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  title: string;
+  frontmatter: {
+    title: string;
+    author: string;
+    description: string;
+    github: string;
+    section: string;
+    draft: true;
+  };
+}
+
 const allNotes = await getCollection("notes");
+const firstPost = allNotes[0].data;
+const { title } = Astro.props;
 ---
 
-<header><h1>My Notes</h1></header>
+<Layout title={title}>
+  <h1>Latest Notes</h1>
+  <section class="notes">
+    <aside class="notes__categories">
+      <ol>
+        {
+          allNotes.map((note) => (
+            <li>
+              <a href={`/notes/${note.slug}`}>{note.data.title}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </aside>
+    <main>
+      <h2>{firstPost.title}</h2>
+      <p>{firstPost.description}</p>
+      <p>{firstPost.description}</p>
+    </main>
+  </section>
+</Layout>
 
-<h2>Latest Notes</h2>
-<ol>
-  {
-    allNotes.map((note) => (
-      <li>
-        <a href={`/notes/${note.slug}`}>{note.data.title}</a>
-      </li>
-    ))
+<style>
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
   }
-</ol>
+
+  ul {
+    list-style-type: none;
+  }
+</style>
