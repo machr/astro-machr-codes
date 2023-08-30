@@ -17,8 +17,8 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
 	</head>
-	<body class="">
-		<div class="container">
+	<body class="m-6">
+		<div class="w-full xl:container h-screen mx-auto">
 			<Header />
 			<slot />
 			<Footer />
@@ -60,7 +60,7 @@ const { title } = Astro.props;
 		background: white;
 		border-radius: 25px;
 		margin: 1rem;
-		padding: 1rem 2rem;
+		padding: 2rem;
 	}
 	.container {
 		max-width: 1280px;
