@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allJobs = await getCollection("jobs");
+const jobs = allJobs.map(({ data }) => {
+    return {
+        company: data.company,
+        years: data.years,
+        role: data.role,
+    };
+});
+---
+
+<Layout>
+    <section class="about__grid" transition:animate="slide">
+        <section class="jobs">
+            {
+                jobs.map((job) => (
+                    <article class="grid grid-cols-3 ">
+                        <aside>
+                            <h2>{job.company}</h2>
+                            <span>{job.years}</span>
+                        </aside>
+                        <section>
+                            <h2>{job.role}</h2>
+                        </section>
+                    </article>
+                ))
+            }
+        </section>
+    </section>
+</Layout>

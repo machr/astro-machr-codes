@@ -1,14 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import me from "../assets/me.jpeg";
+import { getCollection } from "astro:content";
+
+const allJobs = await getCollection("jobs");
+const jobs = allJobs.map(({ data }) => {
+  return {
+    company: data.company,
+    years: data.years,
+    role: data.role,
+  };
+});
 ---
 
 <Layout title="About Me">
-  <section class="about__grid"  transition:animate="slide">
+  <section class="about__grid" transition:animate="slide">
     <aside class="about__photo">
       <img src={me.src} alt="A profile picture of Mark Christiansen" />
     </aside>
     <main>
+      <section class="about__grid" transition:animate="slide">
+        <section class="jobs">
+          {
+            jobs.map((job) => (
+              <article class="grid grid-cols-3 ">
+                <aside>
+                  <h2>{job.company}</h2>
+                  <span>{job.years}</span>
+                </aside>
+                <section>
+                  <h2>{job.role}</h2>
+                </section>
+              </article>
+            ))
+          }
+        </section>
+      </section>
       <section class="content">
         <h1>About me</h1>
         <p>
@@ -34,21 +61,3 @@ import me from "../assets/me.jpeg";
     </main>
   </section>
 </Layout>
-
-<style>
-  .about__grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 3rem;
-  }
-  .about__photo {
-    display: block;
-    width: 100%;
-  }
-  .about__photo img {
-    display: block;
-    width: 100%;
-    border-radius: 25px;
-  }
-</style>
