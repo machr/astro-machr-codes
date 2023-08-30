@@ -1,26 +1,18 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Head from '../components/common/Head.astro'
 // Supports weights 100-900
 import '@fontsource-variable/inter';
 
 // Supports weights 400-700
 import '@fontsource-variable/lora';
-export interface Props {
-	title: string;
-}
 
-const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
+	<Head title="Mark Christiansen | Web Developer" />
 	<body class="m-6">
 		<div class="w-full xl:container h-screen mx-auto">
 			<Navigation />

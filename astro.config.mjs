@@ -11,6 +11,7 @@ export default defineConfig({
     drafts: true
   }), tailwind()],
   experimental: {
-    assets: true
+    assets: true,
+    viewTransitions: true
   }
 });
