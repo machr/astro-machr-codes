@@ -1,29 +1,19 @@
 ---
-const languages = [
-  "Hola",
-  "Guten Tag",
-  "Salve",
-  "olá",
-  "nǐn hǎo",
-  "Hej",
-  "Hello",
-  "Salut",
-];
+const languages = ["Hola", "Guten Tag", "Salve", "olá", "nǐn hǎo", "Hej", "Hello", "Salut"];
 const language = `${languages[Math.floor(Math.random() * languages.length)]}! `;
 ---
 
 <header>
   <section class="title my-12 scroll-py-16">
     <h1 class="text-2xl leading-loose text-stone/70">
-      <span class="text-rose-500/75">{language}</span>I'm Mark Christiansen, a
-      developer based in Melbourne, Australia
+      <span class="text-rose-500/75">{language}</span>I'm Mark Christiansen, a developer based in Melbourne, Australia
     </h1>
   </section>
   <div>
-    <a class="block" href="https://www.linkedin.com/in/powellm/">linkedin</a>
-    <a class="block" href="https://www.twitter.com/machr_codes"
+    <a class="block hover:underline hover:text-gray-600" href="https://www.linkedin.com/in/powellm/">linkedin</a>
+    <a class="block hover:underline hover:text-gray-600" href="https://www.twitter.com/machr_codes"
       >twitter/@machr_codes</a
     >
-    <a class="block" href="https://www.github.com/machr">github/@machr</a>
+    <a class="block hover:underline hover:text-gray-600" href="https://www.github.com/machr">github/@machr</a>
   </div>
 </header>
