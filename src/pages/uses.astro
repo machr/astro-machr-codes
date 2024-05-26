@@ -1,67 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import UsesCard from '../components/UsesCard.astro'
+import UsesCard from "../components/UsesCard.astro";
 ---
 
 <Layout title="Hardware, Software and everything I use">
-    <section class="intro">
-        <h1>
-            Hardware, Software and everything I use. 
-        </h1>
-        
-        <p>
-            This is all the gear and software I use for my work and personal projects.
-            To make it easier to share, I have created a page specifically for this. It's intended to be a living documents as things change.
-        </p>
-    </section>
-    <section class="uses-list flex">
-        <aside>
-            <nav>
-                <ul>
-                    <li><a href="#coding">#coding</a></li>
-                    <li><a href="#gaming">#gaming</a></li>
-                    <li><a href="#music">#music</a></li>
-                    <li><a href="#stationary">#stationary</a></li>
-                    <li><a href="#peripherals">#peripherals</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main>
-            <section id="coding" class="category">
-                <h2>Coding</h2>
-                <UsesCard 
-                    headerImage="https://mechanicalkeyboards.com/shop/images/products/large_2843_87CMYK_1.jpg"
-                    title="Varmilo Keyboard"
-                    description="this is the keyboard I use"
-                />
-                <UsesCard>
-                    Logitech MX Master 3 Mouse
-                </UsesCard>
-            </section>
-            <section id="gaming" class="category">
-                <h2>Gaming</h2>
-                <UsesCard title="Playstation 5" description="to be updated">
-                    
-                </UsesCard>
-                <UsesCard title="steelseries arctic 7p headset" description="to be updated">
-                    
-                </UsesCard>
-            </section>
-            <section id="software" class="category">
-                <h2>software</h2>
-                <UsesCard title="VScode (with Moonlight 2 Italic theme)" description="to be updated">
-                    
-                </UsesCard>
-                <UsesCard title="Iterm 2" description="to be updated">
-                    
-                </UsesCard>
-                <UsesCard title="Rectangle" description="to be updated">
-                    
-                </UsesCard>
-                <UsesCard title="KeepingYouAwake" description="to be updated">
-                    
-                </UsesCard>
-            </section>
-        </main>
-    </section>
+  <section class="intro">
+    <h1>Hardware, Software and everything I use.</h1>
+
+    <p>
+      This is all the gear and software I use for my work and personal projects. To make it easier to share, I have
+      created a page specifically for this. It's intended to be a living documents as things change.
+    </p>
+  </section>
+  <section class="uses-list flex gap-10">
+    <aside class="w-1/4 border-r border-r-black">
+      <nav>
+        <ul>
+          <li><a href="#coding">#coding</a></li>
+          <li><a href="#gaming">#gaming</a></li>
+          <li><a href="#music">#music</a></li>
+          <li><a href="#stationary">#stationary</a></li>
+          <li><a href="#peripherals">#peripherals</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="md:w-3/4">
+      <section id="coding" class="category">
+        <h2>Coding</h2>
+        <UsesCard
+          headerImage="https://mechanicalkeyboards.com/shop/images/products/large_2843_87CMYK_1.jpg"
+          title="Varmilo Keyboard"
+          description="this is the keyboard I use"
+        />
+        <UsesCard>Logitech MX Master 3 Mouse</UsesCard>
+      </section>
+      <section id="gaming" class="category">
+        <h2>Gaming</h2>
+        <UsesCard title="Playstation 5" description="to be updated" />
+        <UsesCard title="steelseries arctic 7p headset" description="to be updated" />
+      </section>
+      <section id="software" class="category">
+        <h2>software</h2>
+        <UsesCard title="VScode (with Moonlight 2 Italic theme)" description="to be updated" />
+        <UsesCard title="Iterm 2" description="to be updated" />
+        <UsesCard title="Rectangle" description="to be updated" />
+        <UsesCard title="KeepingYouAwake" description="to be updated" />
+      </section>
+    </main>
+  </section>
 </Layout>

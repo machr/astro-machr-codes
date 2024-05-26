@@ -5,13 +5,12 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    drafts: true
+    drafts: true,
   },
-  integrations: [mdx({
-    drafts: true
-  }), tailwind()],
-  experimental: {
-    assets: true,
-    viewTransitions: true
-  }
+  integrations: [
+    mdx({
+      drafts: true,
+    }),
+    tailwind(),
+  ],
 });

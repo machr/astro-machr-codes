@@ -14,48 +14,11 @@ import Header from "../components/common/Header.astro";
 <html lang="en">
 	<Head title="Mark Christiansen | Web Developer" />
 	<body class="m-6">
-		<div class="w-full xl:container h-screen mx-auto p-20 py-12 font-serif">
-			<Header />
+		<div class="w-full xl:container h-screen mx-auto  font-serif">
 			<Navigation />
+			<Header />
 			<slot />
+      <Footer />
 		</div>
-		<style is:global>
-			:root {
-				--accent: 124, 58, 237;
-				--accent-gradient: linear-gradient(
-					45deg,
-					rgb(var(--accent)),
-					#da62c4 30%,
-					white 60%
-				);
-				--breakpoint-sm: max-width: 640px;
-				--breakpoint-md: max-width: 768px;
-				--breakpoint-lg: max-width: 1024px;
-				--breakpoint-xl: max-width: 1280px;
-				--breakpoint-2xl: max-width: 1536px;
-			}
-
-			@media (: dark) {
-				background-color: black;
-				color: white;
-			}
-
-			@media (prefers-color-scheme: light) {
-				/* Light theme styles go here */
-				background-color: white;
-				color: black;
-			}
-			code {
-				font-family:
-					Menlo,
-					Monaco,
-					Lucida Console,
-					Liberation Mono,
-					DejaVu Sans Mono,
-					Bitstream Vera Sans Mono,
-					Courier New,
-					monospace;
-			}
-		</style>
 	</body>
 </html>
